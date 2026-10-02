@@ -67,3 +67,24 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# .NET build and IDE output
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+TestResults/
+artifacts/
+
+# Local tooling
+__pycache__/
+*.pyc
+.venv/
+
+# LaTeX intermediates (future handbook builds)
+*.aux
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz

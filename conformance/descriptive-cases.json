@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "contract_version": "0.1",
+  "provenance": {
+    "kind": "original_hand_derived",
+    "author": "SASD Statistical Toolkit documentation baseline",
+    "created": "2026-10-02",
+    "derivation": "Centered definitions in spec/DESCRIPTIVE-STATISTICS.md. Base deviations -2,-1,0,1,2 yield M2=10. Pair [1,2,3] and [2,4,6] yields C=4 and sample covariance=2. Square roots are rounded binary64 targets; no implementation under test generated these values.",
+    "independent_external_references": "Not yet added; required before numerical validation."
+  },
+  "default_tolerance": {
+    "atol": 1e-12,
+    "rtol": 1e-12
+  },
+  "cases": [
+    {
+      "id": "DESC-BASE",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "success",
+        "input_count": 5,
+        "used_count": 5,
+        "excluded_count": 0,
+        "mean": 3,
+        "minimum": 1,
+        "maximum": 5,
+        "population_variance": 2,
+        "sample_variance": 2.5,
+        "sample_standard_deviation": 1.5811388300841898
+      }
+    },
+    {
+      "id": "DESC-OFFSET",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          1000000001,
+          1000000002,
+          1000000003,
+          1000000004,
+          1000000005
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "success",
+        "input_count": 5,
+        "used_count": 5,
+        "excluded_count": 0,
+        "mean": 1000000003,
+        "minimum": 1000000001,
+        "maximum": 1000000005,
+        "population_variance": 2,
+        "sample_variance": 2.5,
+        "sample_standard_deviation": 1.5811388300841898
+      }
+    },
+    {
+      "id": "DESC-CONSTANT",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          7,
+          7,
+          7
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "success",
+        "input_count": 3,
+        "used_count": 3,
+        "excluded_count": 0,
+        "mean": 7,
+        "minimum": 7,
+        "maximum": 7,
+        "population_variance": 0,
+        "sample_variance": 0,
+        "sample_standard_deviation": 0
+      }
+    },
+    {
+      "id": "DESC-EMPTY",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": []
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "insufficient_data",
+        "input_count": 0,
+        "used_count": 0,
+        "excluded_count": 0,
+        "mean": null,
+        "minimum": null,
+        "maximum": null,
+        "population_variance": null,
+        "sample_variance": null,
+        "sample_standard_deviation": null
+      }
+    },
+    {
+      "id": "DESC-SINGLE",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          7
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "partial",
+        "input_count": 1,
+        "used_count": 1,
+        "excluded_count": 0,
+        "mean": 7,
+        "minimum": 7,
+        "maximum": 7,
+        "population_variance": 0,
+        "sample_variance": null,
+        "sample_standard_deviation": null
+      },
+      "expected_metric_status": {
+        "sample_variance": "insufficient_data",
+        "sample_standard_deviation": "insufficient_data"
+      }
+    },
+    {
+      "id": "DESC-MISSING-REJECT",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          1,
+          "NaN",
+          3
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "invalid_input"
+      }
+    },
+    {
+      "id": "DESC-MISSING-OMIT",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          1,
+          "NaN",
+          3
+        ]
+      },
+      "options": {
+        "missing_policy": "omit"
+      },
+      "expected": {
+        "status": "success",
+        "input_count": 3,
+        "used_count": 2,
+        "excluded_count": 1,
+        "mean": 2,
+        "minimum": 1,
+        "maximum": 3,
+        "population_variance": 1,
+        "sample_variance": 2,
+        "sample_standard_deviation": 1.4142135623730951
+      }
+    },
+    {
+      "id": "DESC-ALL-MISSING",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          "NaN",
+          "NaN"
+        ]
+      },
+      "options": {
+        "missing_policy": "omit"
+      },
+      "expected": {
+        "status": "insufficient_data",
+        "input_count": 2,
+        "used_count": 0,
+        "excluded_count": 2,
+        "mean": null,
+        "minimum": null,
+        "maximum": null,
+        "population_variance": null,
+        "sample_variance": null,
+        "sample_standard_deviation": null
+      }
+    },
+    {
+      "id": "DESC-INFINITY",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          1,
+          "+Infinity"
+        ]
+      },
+      "options": {
+        "missing_policy": "omit"
+      },
+      "expected": {
+        "status": "invalid_input"
+      }
+    },
+    {
+      "id": "DESC-NEG-INFINITY",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          1,
+          "-Infinity"
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "invalid_input"
+      }
+    },
+    {
+      "id": "DESC-INVALID-POLICY",
+      "procedure_id": "STAT-DESC-001",
+      "input": {
+        "x": [
+          1,
+          2
+        ]
+      },
+      "options": {
+        "missing_policy": "unsupported"
+      },
+      "expected": {
+        "status": "invalid_input"
+      }
+    },
+    {
+      "id": "COV-POSITIVE",
+      "procedure_id": "STAT-DESC-002",
+      "input": {
+        "x": [
+          1,
+          2,
+          3
+        ],
+        "y": [
+          2,
+          4,
+          6
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "success",
+        "input_count": 3,
+        "used_count": 3,
+        "excluded_count": 0,
+        "sample_covariance": 2
+      }
+    },
+    {
+      "id": "CORR-POSITIVE",
+      "procedure_id": "STAT-DESC-003",
+      "input": {
+        "x": [
+          1,
+          2,
+          3
+        ],
+        "y": [
+          2,
+          4,
+          6
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "success",
+        "input_count": 3,
+        "used_count": 3,
+        "excluded_count": 0,
+        "correlation": 1
+      }
+    },
+    {
+      "id": "CORR-NEGATIVE",
+      "procedure_id": "STAT-DESC-003",
+      "input": {
+        "x": [
+          1,
+          2,
+          3
+        ],
+        "y": [
+          6,
+          4,
+          2
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "success",
+        "correlation": -1
+      }
+    },
+    {
+      "id": "COV-CONSTANT",
+      "procedure_id": "STAT-DESC-002",
+      "input": {
+        "x": [
+          1,
+          1,
+          1
+        ],
+        "y": [
+          2,
+          4,
+          6
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "success",
+        "sample_covariance": 0
+      }
+    },
+    {
+      "id": "CORR-CONSTANT",
+      "procedure_id": "STAT-DESC-003",
+      "input": {
+        "x": [
+          1,
+          1,
+          1
+        ],
+        "y": [
+          2,
+          4,
+          6
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "undefined_statistic",
+        "correlation": null
+      }
+    },
+    {
+      "id": "PAIR-MISMATCH",
+      "procedure_id": "STAT-DESC-002",
+      "input": {
+        "x": [
+          1,
+          2
+        ],
+        "y": [
+          1
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "invalid_input"
+      }
+    },
+    {
+      "id": "PAIR-SINGLE",
+      "procedure_id": "STAT-DESC-002",
+      "input": {
+        "x": [
+          1
+        ],
+        "y": [
+          2
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "insufficient_data",
+        "sample_covariance": null,
+        "input_count": 1,
+        "used_count": 1,
+        "excluded_count": 0
+      }
+    },
+    {
+      "id": "PAIR-EMPTY",
+      "procedure_id": "STAT-DESC-003",
+      "input": {
+        "x": [],
+        "y": []
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "insufficient_data",
+        "correlation": null,
+        "input_count": 0,
+        "used_count": 0,
+        "excluded_count": 0
+      }
+    },
+    {
+      "id": "PAIR-OMIT",
+      "procedure_id": "STAT-DESC-002",
+      "input": {
+        "x": [
+          1,
+          "NaN",
+          3
+        ],
+        "y": [
+          2,
+          4,
+          6
+        ]
+      },
+      "options": {
+        "missing_policy": "omit"
+      },
+      "expected": {
+        "status": "success",
+        "input_count": 3,
+        "used_count": 2,
+        "excluded_count": 1,
+        "sample_covariance": 4
+      }
+    },
+    {
+      "id": "PAIR-OMIT-BOTH",
+      "procedure_id": "STAT-DESC-003",
+      "input": {
+        "x": [
+          1,
+          "NaN",
+          3,
+          4
+        ],
+        "y": [
+          2,
+          4,
+          "NaN",
+          8
+        ]
+      },
+      "options": {
+        "missing_policy": "omit"
+      },
+      "expected": {
+        "status": "success",
+        "input_count": 4,
+        "used_count": 2,
+        "excluded_count": 2,
+        "correlation": 1
+      }
+    },
+    {
+      "id": "PAIR-MISSING-REJECT",
+      "procedure_id": "STAT-DESC-003",
+      "input": {
+        "x": [
+          1,
+          "NaN",
+          3
+        ],
+        "y": [
+          2,
+          4,
+          6
+        ]
+      },
+      "options": {
+        "missing_policy": "reject"
+      },
+      "expected": {
+        "status": "invalid_input"
+      }
+    },
+    {
+      "id": "PAIR-INFINITY",
+      "procedure_id": "STAT-DESC-002",
+      "input": {
+        "x": [
+          1,
+          2
+        ],
+        "y": [
+          2,
+          "+Infinity"
+        ]
+      },
+      "options": {
+        "missing_policy": "omit"
+      },
+      "expected": {
+        "status": "invalid_input"
+      }
+    }
+  ]
+}

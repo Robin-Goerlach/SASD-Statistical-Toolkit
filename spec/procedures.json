@@ -1,0 +1,534 @@
+{
+  "schema_version": 1,
+  "note": "Catalog scope and dependencies are provisional; no statistical procedure is implemented. Empty capability lists require future audit, not a claim of no dependency.",
+  "procedures": [
+    {
+      "id": "STAT-DESC-001",
+      "name": "Descriptive summary",
+      "family": "descriptive",
+      "milestone": "M1",
+      "specification_status": "draft",
+      "contract_path": "spec/DESCRIPTIVE-STATISTICS.md",
+      "contract_version": "0.1",
+      "math_capabilities": [
+        "MATH-BASE"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DESC-002",
+      "name": "Sample covariance",
+      "family": "descriptive",
+      "milestone": "M1",
+      "specification_status": "draft",
+      "contract_path": "spec/DESCRIPTIVE-STATISTICS.md",
+      "contract_version": "0.1",
+      "math_capabilities": [
+        "MATH-BASE"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DESC-003",
+      "name": "Pearson correlation",
+      "family": "descriptive",
+      "milestone": "M1",
+      "specification_status": "draft",
+      "contract_path": "spec/DESCRIPTIVE-STATISTICS.md",
+      "contract_version": "0.1",
+      "math_capabilities": [
+        "MATH-BASE"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DESC-004",
+      "name": "Exact sample quantiles",
+      "family": "descriptive",
+      "milestone": "M3",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-BASE"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DESC-005",
+      "name": "Frequency, histogram and empirical CDF",
+      "family": "descriptive",
+      "milestone": "M3",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-BASE"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DIST-001",
+      "name": "Normal distribution",
+      "family": "probability",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL",
+        "MATH-ROOT"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DIST-002",
+      "name": "Student t distribution",
+      "family": "probability",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL",
+        "MATH-ROOT"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DIST-003",
+      "name": "Chi-square distribution",
+      "family": "probability",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL",
+        "MATH-ROOT"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DIST-004",
+      "name": "F distribution",
+      "family": "probability",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL",
+        "MATH-ROOT"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DIST-005",
+      "name": "Binomial distribution",
+      "family": "probability",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DIST-006",
+      "name": "Poisson distribution",
+      "family": "probability",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-INFR-001",
+      "name": "Mean confidence interval",
+      "family": "inference",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL",
+        "MATH-ROOT"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-INFR-002",
+      "name": "One-sample t test",
+      "family": "inference",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-INFR-003",
+      "name": "Welch two-sample t test",
+      "family": "inference",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-INFR-004",
+      "name": "Paired t test",
+      "family": "inference",
+      "milestone": "M2",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-INFR-005",
+      "name": "Rank procedures",
+      "family": "inference",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-INFR-006",
+      "name": "Contingency table analysis",
+      "family": "inference",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-INFR-007",
+      "name": "Multiplicity corrections",
+      "family": "inference",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-MODL-001",
+      "name": "Simple linear regression",
+      "family": "models",
+      "milestone": "M4",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-QR",
+        "MATH-SVD",
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-MODL-002",
+      "name": "Full-rank multiple linear regression",
+      "family": "models",
+      "milestone": "M4",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-QR",
+        "MATH-SVD",
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-MODL-003",
+      "name": "One-way ANOVA",
+      "family": "models",
+      "milestone": "M4",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-QR",
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-MODL-004",
+      "name": "ANCOVA and factorial models",
+      "family": "models",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-QR",
+        "MATH-SVD",
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-MODL-005",
+      "name": "Generalized linear models",
+      "family": "models",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-QR",
+        "MATH-OPT"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-MODL-006",
+      "name": "Nonlinear statistical models",
+      "family": "models",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-OPT"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-MULT-001",
+      "name": "Principal component analysis",
+      "family": "multivariate",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-EIGEN",
+        "MATH-SVD"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-MULT-002",
+      "name": "Clustering and discrimination",
+      "family": "multivariate",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-TIME-001",
+      "name": "Time-series summaries and forecasting",
+      "family": "time_series",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-SURV-001",
+      "name": "Survival and reliability",
+      "family": "survival",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-SIMU-001",
+      "name": "Random sampling",
+      "family": "simulation",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-RNG"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-SIMU-002",
+      "name": "Bootstrap and permutation",
+      "family": "simulation",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-RNG"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-QUAL-001",
+      "name": "Control charts",
+      "family": "quality",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-QUAL-002",
+      "name": "Process capability",
+      "family": "quality",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [
+        "MATH-SPECIAL"
+      ],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    },
+    {
+      "id": "STAT-DESG-001",
+      "name": "Experimental design",
+      "family": "design",
+      "milestone": "M5",
+      "specification_status": "catalogued",
+      "contract_path": null,
+      "contract_version": null,
+      "math_capabilities": [],
+      "implementations": {
+        "cpp": "not_started",
+        "dotnet": "not_started"
+      }
+    }
+  ]
+}
